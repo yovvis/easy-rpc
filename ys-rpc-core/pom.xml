@@ -3,19 +3,15 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.yovvis</groupId>
-    <artifactId>example-consumer</artifactId>
+    <artifactId>ys-rpc-core</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <dependencies>
+        <!-- https://vertx.io/docs/vertx-web/java/#_using_vert_x_web-->
         <dependency>
-            <groupId>com.yovvis</groupId>
-            <artifactId>ys-rpc-core</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.yovvis</groupId>
-            <artifactId>example-common</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <groupId>io.vertx</groupId>
+            <artifactId>vertx-web</artifactId>
+            <version>4.5.4</version>
         </dependency>
         <!-- https://doc.hutool.cn/ -->
         <dependency>
@@ -29,6 +25,18 @@
             <artifactId>lombok</artifactId>
             <version>1.18.30</version>
             <scope>provided</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic/1.4.14 -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.4.14</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>RELEASE</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
