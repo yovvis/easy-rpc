@@ -35,11 +35,15 @@ public class KryoSerializer implements Serializer {
      */
     @Override
     public <T> byte[] serialize(T object) throws IOException {
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        Output output = new Output(byteArrayOutputStream);
-        KRYO_THREAD_LOCAL.get().writeObject(output, output);
-        output.close();
-        return byteArrayOutputStream.toByteArray();
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        Output output = new Output(bos);
+        try {
+            KRYO_THREAD_LOCAL.get().writeObject(output, object);
+            output.flush();
+            return bos.toByteArray();
+        } finally {
+            output.close();
+        }
     }
 
     /**
@@ -52,11 +56,14 @@ public class KryoSerializer implements Serializer {
      * @throws IOException
      */
     @Override
-    public <T> T deserialize(byte[] bytes, Class<T> type) throws IOException {
-        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bytes);
-        Input input = new Input(byteArrayInputStream);
-        T result = KRYO_THREAD_LOCAL.get().readObject(input, type);
-        input.close();
-        return result;
+    public <T> T deserialize(byte[] bytes, Class<T> tClass) throws IOException {
+        ByteArrayInputStream bis = new ByteArrayInputStream(bytes);
+        Input input = new Input(bis);
+        try {
+            T result = KRYO_THREAD_LOCAL.get().readObject(input, tClass);
+            return result;
+        } finally {
+            input.close();
+        }
     }
 }

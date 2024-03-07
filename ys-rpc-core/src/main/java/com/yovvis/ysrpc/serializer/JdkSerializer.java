@@ -30,13 +30,13 @@ public class JdkSerializer implements Serializer {
      * 反序列化
      *
      * @param bytes
-     * @param type
+     * @param tClass
      * @param <T>
      * @return
      * @throws IOException
      */
     @Override
-    public <T> T deserialize(byte[] bytes, Class<T> type) throws IOException {
+    public <T> T deserialize(byte[] bytes, Class<T> tClass) throws IOException {
         ByteArrayInputStream inputStream = new ByteArrayInputStream(bytes);
         ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
         try {

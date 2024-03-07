@@ -32,19 +32,19 @@ public class JsonSerializer implements Serializer {
      * 反序列化
      *
      * @param bytes
-     * @param type
+     * @param tClass
      * @param <T>
      * @return
      * @throws IOException
      */
     @Override
-    public <T> T deserialize(byte[] bytes, Class<T> type) throws IOException {
-        T obj = OBJECT_MAPPER.readValue(bytes, type);
-        if (obj instanceof RpcResponse) {
-            return handleRequest((RpcRequest) obj, type);
+    public <T> T deserialize(byte[] bytes, Class<T> tClass) throws IOException {
+        T obj = OBJECT_MAPPER.readValue(bytes, tClass);
+        if (obj instanceof RpcRequest) {
+            return handleRequest((RpcRequest) obj, tClass);
         }
         if (obj instanceof RpcResponse) {
-            return handleResponse((RpcResponse) obj, type);
+            return handleResponse((RpcResponse) obj, tClass);
         }
         return obj;
     }
