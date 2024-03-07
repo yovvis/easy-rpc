@@ -1,5 +1,6 @@
 package com.yovvis.ysrpc.config;
 
+import com.yovvis.ysrpc.serializer.SerializerKeys;
 import lombok.Data;
 
 /**
@@ -31,4 +32,9 @@ public class RpcConfig {
      * Mock 调用
      */
     private boolean mock = false;
+
+    /**
+     * 默认序列化器
+     */
+    private String serializer = SerializerKeys.JDK;
 }

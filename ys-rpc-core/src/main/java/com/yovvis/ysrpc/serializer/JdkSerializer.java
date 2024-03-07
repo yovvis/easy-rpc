@@ -8,7 +8,7 @@ import java.io.*;
  * @author yovvis
  * @date 2024/3/5
  */
-public class jdkSerializer implements Serializer {
+public class JdkSerializer implements Serializer {
     /**
      * 序列化
      *

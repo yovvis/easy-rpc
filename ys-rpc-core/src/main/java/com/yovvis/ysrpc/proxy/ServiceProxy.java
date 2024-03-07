@@ -2,10 +2,13 @@ package com.yovvis.ysrpc.proxy;
 
 import cn.hutool.http.HttpRequest;
 import cn.hutool.http.HttpResponse;
+import com.yovvis.ysrpc.RpcApplication;
+import com.yovvis.ysrpc.config.RpcConfig;
 import com.yovvis.ysrpc.model.RpcRequest;
 import com.yovvis.ysrpc.model.RpcResponse;
 import com.yovvis.ysrpc.serializer.Serializer;
-import com.yovvis.ysrpc.serializer.jdkSerializer;
+import com.yovvis.ysrpc.serializer.JdkSerializer;
+import com.yovvis.ysrpc.serializer.SerializerFactory;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationHandler;
@@ -30,7 +33,7 @@ public class ServiceProxy implements InvocationHandler {
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         // 1.指定序列化器
-        Serializer serializer = new jdkSerializer();
+        final Serializer serializer = SerializerFactory.getInstance(RpcApplication.getRpcConfig().getSerializer());
         // 2.构造请求
         RpcRequest rpcRequest = RpcRequest.builder().serviceName(method.getDeclaringClass().getName()).methodName(method.getName()).parameterTypes(method.getParameterTypes()).args(args).build();
         try {

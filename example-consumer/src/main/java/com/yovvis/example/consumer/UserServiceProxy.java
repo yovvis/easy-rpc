@@ -7,7 +7,7 @@ import com.yovvis.example.common.service.UserService;
 import com.yovvis.ysrpc.model.RpcRequest;
 import com.yovvis.ysrpc.model.RpcResponse;
 import com.yovvis.ysrpc.serializer.Serializer;
-import com.yovvis.ysrpc.serializer.jdkSerializer;
+import com.yovvis.ysrpc.serializer.JdkSerializer;
 
 import java.io.IOException;
 
@@ -17,10 +17,11 @@ import java.io.IOException;
  * @author yovvis
  * @date 2024/3/5
  */
+@Deprecated
 public class UserServiceProxy implements UserService {
     public User getUser(User user) {
         // 1.指定序列化器
-        Serializer serializer = new jdkSerializer();
+        Serializer serializer = new JdkSerializer();
         // 2.发送请求
         RpcRequest rpcRequest = RpcRequest.builder().serviceName(UserService.class.getName()).methodName("getUser").parameterTypes(new Class[]{User.class}).args(new Object[]{user}).build();
         try {
