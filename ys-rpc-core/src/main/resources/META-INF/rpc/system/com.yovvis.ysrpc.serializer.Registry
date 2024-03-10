@@ -1,0 +1,1 @@
+etcd=com.yovvis.ysrpc.registry.EtcdRegistry

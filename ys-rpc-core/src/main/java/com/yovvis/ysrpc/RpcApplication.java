@@ -1,7 +1,10 @@
 package com.yovvis.ysrpc;
 
+import com.yovvis.ysrpc.config.RegistryConfig;
 import com.yovvis.ysrpc.config.RpcConfig;
 import com.yovvis.ysrpc.constant.RpcConstant;
+import com.yovvis.ysrpc.registry.Registry;
+import com.yovvis.ysrpc.registry.RegistryFactory;
 import com.yovvis.ysrpc.utils.ConfigUtils;
 import lombok.extern.slf4j.Slf4j;
 
@@ -25,6 +28,11 @@ public class RpcApplication {
     public static void init(RpcConfig newRpcConfig) {
         rpcConfig = newRpcConfig;
         log.info("rpc init，config = {}", newRpcConfig.toString());
+        // 注册中心初始化
+        RegistryConfig registryConfig = rpcConfig.getRegistryConfig();
+        Registry registry = RegistryFactory.getInstance(registryConfig.getRegistry());
+        registry.init(registryConfig);
+        log.info("registry init，{}", registryConfig);
     }
 
     /**

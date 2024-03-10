@@ -10,6 +10,7 @@ import java.util.concurrent.ConcurrentMap;
  * @author yovvis
  * @date 2024/3/5
  */
+@Deprecated
 public class LocalRegistry {
     /**
      * 注册信息存储
