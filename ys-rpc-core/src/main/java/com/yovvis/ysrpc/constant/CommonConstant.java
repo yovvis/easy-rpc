@@ -1,7 +1,7 @@
 package com.yovvis.ysrpc.constant;
 
 /**
- * 请求常量
+ * 公共常量
  *
  * @author yovvis
  * @date 2024/3/11
@@ -15,4 +15,9 @@ public interface CommonConstant {
      * https请求
      */
     String HTTPS = "https://";
+
+    /**
+     * 请求前缀
+     */
+    String PREFIX = HTTP;
 }
