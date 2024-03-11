@@ -2,6 +2,7 @@ package com.yovvis.ysrpc.registry;
 
 import cn.hutool.json.JSONUtil;
 import com.yovvis.ysrpc.config.RegistryConfig;
+import com.yovvis.ysrpc.constant.CommonConstant;
 import com.yovvis.ysrpc.model.ServiceMetaInfo;
 import io.etcd.jetcd.*;
 import io.etcd.jetcd.options.GetOption;
@@ -31,7 +32,8 @@ public class EtcdRegistry implements Registry {
 
     @Override
     public void init(RegistryConfig registryConfig) {
-        client = Client.builder().endpoints(registryConfig.getAddress()).connectTimeout(Duration.ofMillis(registryConfig.getTimeout())).build();
+        client = Client.builder().endpoints(CommonConstant.HTTP + registryConfig.getAddress()).connectTimeout(Duration.ofMillis(registryConfig.getTimeout())).build();
+        kvClient = client.getKVClient();
     }
 
     @Override

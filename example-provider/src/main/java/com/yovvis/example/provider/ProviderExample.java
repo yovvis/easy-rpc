@@ -9,9 +9,6 @@ import com.yovvis.ysrpc.registry.LocalRegistry;
 import com.yovvis.ysrpc.registry.Registry;
 import com.yovvis.ysrpc.registry.RegistryFactory;
 import com.yovvis.ysrpc.server.VertxHttpServer;
-import sun.util.locale.provider.LocaleResources;
-
-import java.util.Locale;
 
 /**
  * 服务提供实例
@@ -35,6 +32,8 @@ public class ProviderExample {
         ServiceMetaInfo serviceMetaInfo = new ServiceMetaInfo();
         serviceMetaInfo.setServiceName(serviceName);
         serviceMetaInfo.setServiceAddress(rpcConfig.getServerHost() + ":" + rpcConfig.getServerPort());
+
+        serviceMetaInfo.setServiceVersion("1.0");
         try {
             registry.register(serviceMetaInfo);
         } catch (Exception e) {
