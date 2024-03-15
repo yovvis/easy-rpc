@@ -1,8 +1,9 @@
-package com.yovvis.ysrpc.serializer;
+package com.yovvis.ysrpc.serializer.json;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.yovvis.ysrpc.model.RpcRequest;
 import com.yovvis.ysrpc.model.RpcResponse;
+import com.yovvis.ysrpc.serializer.Serializer;
 
 import java.io.IOException;
 

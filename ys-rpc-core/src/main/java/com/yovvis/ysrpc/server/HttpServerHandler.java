@@ -5,7 +5,6 @@ import com.yovvis.ysrpc.model.RpcRequest;
 import com.yovvis.ysrpc.model.RpcResponse;
 import com.yovvis.ysrpc.registry.LocalRegistry;
 import com.yovvis.ysrpc.serializer.Serializer;
-import com.yovvis.ysrpc.serializer.JdkSerializer;
 import com.yovvis.ysrpc.serializer.SerializerFactory;
 import io.vertx.core.Handler;
 import io.vertx.core.buffer.Buffer;

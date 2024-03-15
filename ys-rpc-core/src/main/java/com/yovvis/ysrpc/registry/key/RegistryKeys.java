@@ -1,4 +1,4 @@
-package com.yovvis.ysrpc.registry;
+package com.yovvis.ysrpc.registry.key;
 
 /**
  * 注册中心键名常量

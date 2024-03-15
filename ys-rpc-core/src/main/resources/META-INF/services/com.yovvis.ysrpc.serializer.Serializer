@@ -1,1 +1,1 @@
-com.yovvis.ysrpc.serializer.JdkSerializer
+com.yovvis.ysrpc.serializer.jdk.JdkSerializer

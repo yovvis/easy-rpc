@@ -1,7 +1,8 @@
-package com.yovvis.ysrpc.serializer;
+package com.yovvis.ysrpc.serializer.hessian;
 
 import com.caucho.hessian.io.HessianInput;
 import com.caucho.hessian.io.HessianOutput;
+import com.yovvis.ysrpc.serializer.Serializer;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

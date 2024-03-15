@@ -31,15 +31,13 @@ public class ProviderExample {
         Registry registry = RegistryFactory.getInstance(registryConfig.getRegistry());
         ServiceMetaInfo serviceMetaInfo = new ServiceMetaInfo();
         serviceMetaInfo.setServiceName(serviceName);
-        serviceMetaInfo.setServiceAddress(rpcConfig.getServerHost() + ":" + rpcConfig.getServerPort());
-
-        serviceMetaInfo.setServiceVersion("1.0");
+        serviceMetaInfo.setServicePort(rpcConfig.getServerPort());
+        serviceMetaInfo.setServiceHost(rpcConfig.getServerHost());
         try {
             registry.register(serviceMetaInfo);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-
         // 4.启动web服务
         VertxHttpServer httpServer = new VertxHttpServer();
         httpServer.doStart(RpcApplication.getRpcConfig().getServerPort());

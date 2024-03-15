@@ -1,1 +1,2 @@
-etcd=com.yovvis.ysrpc.registry.EtcdRegistry
+etcd=com.yovvis.ysrpc.registry.etcd.EtcdRegistry
+zookeeper=com.yovvis.ysrpc.registry.etcd.ZooKeeperRegistry

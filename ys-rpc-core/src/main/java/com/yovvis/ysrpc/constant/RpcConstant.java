@@ -15,5 +15,20 @@ public interface RpcConstant {
     /**
      * 默认服务版本
      */
-    String DEFAULT_SERVICE_VERSION ="1.0";
+    String DEFAULT_SERVICE_VERSION = "1.0";
+
+    /**
+     * 默认服务分组
+     */
+    String DEFAULT_SERVICE_GROUP = "default";
+
+    /**
+     * RPC etcd注册中心的根路径
+     */
+    String RPC_ETCD_ROOT_PATH = "/rpc/";
+
+    /**
+     * RPC zookeeper注册中心的根路径
+     */
+    String RPC_ZOOKEEPER_ROOT_PATH = "/rpc/zk";
 }

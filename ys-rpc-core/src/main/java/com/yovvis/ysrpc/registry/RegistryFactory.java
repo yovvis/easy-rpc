@@ -1,5 +1,6 @@
 package com.yovvis.ysrpc.registry;
 
+import com.yovvis.ysrpc.registry.etcd.EtcdRegistry;
 import com.yovvis.ysrpc.spi.SpiLoader;
 
 /**

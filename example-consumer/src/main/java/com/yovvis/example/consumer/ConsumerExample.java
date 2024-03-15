@@ -18,7 +18,7 @@ public class ConsumerExample {
         System.out.println(rpcConfig);
         UserService userService = ServiceProxyFactory.getProxy(UserService.class);
         User user = new User();
-        user.setName("测试用户");
+        user.setName("你好, 我是Yovvis");
         // 调用
         User newUser = userService.getUser(user);
         if (newUser == null) {

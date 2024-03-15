@@ -2,6 +2,7 @@ package com.yovvis.ysrpc.registry;
 
 import com.yovvis.ysrpc.config.RegistryConfig;
 import com.yovvis.ysrpc.model.ServiceMetaInfo;
+import com.yovvis.ysrpc.registry.etcd.EtcdRegistry;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -65,5 +66,12 @@ public class RegistryTest {
 
     @Test
     public void destory() {
+    }
+
+    @Test
+    public void heartBeat() throws Exception {
+        register();
+        // 阻塞1分钟
+        Thread.sleep(60 * 1000L);
     }
 }

@@ -1,6 +1,7 @@
 package com.yovvis.ysrpc.model;
 
 import cn.hutool.core.util.StrUtil;
+import com.yovvis.ysrpc.constant.RpcConstant;
 import lombok.Data;
 
 /**
@@ -20,7 +21,7 @@ public class ServiceMetaInfo {
     /**
      * 服务版本号
      */
-    private String serviceVersion;
+    private String serviceVersion = RpcConstant.DEFAULT_SERVICE_VERSION;
 
     /**
      * 服务地址（节点地址）
@@ -30,7 +31,7 @@ public class ServiceMetaInfo {
     /**
      * todo 服务分组
      */
-    private String serviceGroup;
+    private String serviceGroup = RpcConstant.DEFAULT_SERVICE_GROUP;
 
     /**
      * 服务主机
@@ -60,7 +61,7 @@ public class ServiceMetaInfo {
      * @return
      */
     public String getServiceNodeKey() {
-        return String.format("%s/%s", getServiceKey(), serviceAddress);
+        return String.format("%s/%s:%s", getServiceKey(), serviceHost, servicePort);
     }
 
     /**

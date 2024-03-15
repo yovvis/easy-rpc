@@ -1,4 +1,4 @@
-package com.yovvis.ysrpc.registry;
+package com.yovvis.ysrpc.registry.demo;
 
 import io.etcd.jetcd.ByteSequence;
 import io.etcd.jetcd.Client;

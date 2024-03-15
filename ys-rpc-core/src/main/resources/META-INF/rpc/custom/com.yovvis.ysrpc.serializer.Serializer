@@ -1,4 +1,4 @@
-jdk=com.yovvis.ysrpc.serializer.JdkSerializer
-hessian=com.yovvis.ysrpc.serializer.HessianSerializer
-json=com.yovvis.ysrpc.serializer.JsonSerializer
-kryo=com.yovvis.ysrpc.serializer.KryoSerializer
+jdk=com.yovvis.ysrpc.serializer.jdk.JdkSerializer
+hessian=com.yovvis.ysrpc.serializer.hessian.HessianSerializer
+json=com.yovvis.ysrpc.serializer.json.JsonSerializer
+kryo=com.yovvis.ysrpc.serializer.kryo.KryoSerializer

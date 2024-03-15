@@ -1,4 +1,6 @@
-package com.yovvis.ysrpc.serializer;
+package com.yovvis.ysrpc.serializer.jdk;
+
+import com.yovvis.ysrpc.serializer.Serializer;
 
 import java.io.*;
 

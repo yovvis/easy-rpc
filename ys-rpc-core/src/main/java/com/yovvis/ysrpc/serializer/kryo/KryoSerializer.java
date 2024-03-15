@@ -1,8 +1,9 @@
-package com.yovvis.ysrpc.serializer;
+package com.yovvis.ysrpc.serializer.kryo;
 
 import com.esotericsoftware.kryo.Kryo;
 import com.esotericsoftware.kryo.io.Input;
 import com.esotericsoftware.kryo.io.Output;
+import com.yovvis.ysrpc.serializer.Serializer;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

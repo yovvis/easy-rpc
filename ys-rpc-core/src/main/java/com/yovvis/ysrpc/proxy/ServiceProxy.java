@@ -12,7 +12,6 @@ import com.yovvis.ysrpc.model.ServiceMetaInfo;
 import com.yovvis.ysrpc.registry.Registry;
 import com.yovvis.ysrpc.registry.RegistryFactory;
 import com.yovvis.ysrpc.serializer.Serializer;
-import com.yovvis.ysrpc.serializer.JdkSerializer;
 import com.yovvis.ysrpc.serializer.SerializerFactory;
 
 import java.io.IOException;
