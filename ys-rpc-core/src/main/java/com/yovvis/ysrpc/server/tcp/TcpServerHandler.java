@@ -60,10 +60,5 @@ public class TcpServerHandler implements Handler<NetSocket> {
             }
         });
         socket.handler(bufferHandlerWrapper);
-
-//        // 1.处理连接
-//        socket.handler(buffer -> {
-//
-//        });
     }
 }
