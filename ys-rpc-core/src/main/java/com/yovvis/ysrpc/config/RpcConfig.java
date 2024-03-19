@@ -1,6 +1,7 @@
 package com.yovvis.ysrpc.config;
 
-import com.yovvis.ysrpc.serializer.SerializerKeys;
+import com.yovvis.ysrpc.loadbalancer.key.LoadBalancerKeys;
+import com.yovvis.ysrpc.serializer.key.SerializerKeys;
 import lombok.Data;
 
 /**
@@ -42,4 +43,9 @@ public class RpcConfig {
      * 注册中心配置
      */
     private RegistryConfig registryConfig;
+
+    /**
+     * 负载均衡器
+     */
+    private String loadBalancer = LoadBalancerKeys.ROUND_ROBIN;
 }

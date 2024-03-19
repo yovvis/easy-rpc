@@ -16,7 +16,7 @@ public class RegistryConfig {
     private String registry = "etcd";
 
     /**
-     * 注册中心类别
+     * 注册中心地址（客户端）
      */
     private String address = "localhost:2380";
 
@@ -34,6 +34,5 @@ public class RegistryConfig {
      * 超时时间（单位毫秒）
      */
     private Long timeout = 10000L;
-
 
 }

@@ -1,4 +1,4 @@
-package com.yovvis.ysrpc.serializer;
+package com.yovvis.ysrpc.serializer.key;
 
 /**
  * 序列化器名称

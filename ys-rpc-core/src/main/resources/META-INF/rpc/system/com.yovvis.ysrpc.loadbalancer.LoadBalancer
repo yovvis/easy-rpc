@@ -1,0 +1,3 @@
+roundRobin=com.yovvis.ysrpc.loadbalancer.roundrobin.RoundRobinLoadBalancer
+random=com.yovvis.ysrpc.loadbalancer.random.RandomLoadBalancer
+consisentHash=com.yovvis.ysrpc.loadbalancer.consistenthash.ConsistentHashLoadBalancer
