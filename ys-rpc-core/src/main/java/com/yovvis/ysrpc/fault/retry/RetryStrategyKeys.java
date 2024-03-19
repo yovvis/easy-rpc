@@ -1,4 +1,4 @@
-package com.yovvis.ysrpc.fault.retry.key;
+package com.yovvis.ysrpc.fault.retry;
 
 /**
  * 重试策略常量

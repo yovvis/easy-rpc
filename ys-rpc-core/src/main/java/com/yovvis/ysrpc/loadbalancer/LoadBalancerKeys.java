@@ -1,4 +1,4 @@
-package com.yovvis.ysrpc.loadbalancer.key;
+package com.yovvis.ysrpc.loadbalancer;
 
 import com.yovvis.ysrpc.model.ServiceMetaInfo;
 

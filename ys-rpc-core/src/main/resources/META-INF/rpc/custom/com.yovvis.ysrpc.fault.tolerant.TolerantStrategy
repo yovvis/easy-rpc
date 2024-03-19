@@ -1,0 +1,2 @@
+failFast=com.yovvis.ysrpc.fault.tolerant.failfast.FailFastTolerantStrategy
+failOver=com.yovvis.ysrpc.fault.tolerant.failover.FailOverTolerantStrategy

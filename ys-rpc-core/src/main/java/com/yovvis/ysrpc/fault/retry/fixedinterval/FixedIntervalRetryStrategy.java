@@ -1,4 +1,4 @@
-package com.yovvis.ysrpc.fault.retry.fixed;
+package com.yovvis.ysrpc.fault.retry.fixedinterval;
 
 import com.github.rholder.retry.*;
 import com.yovvis.ysrpc.fault.retry.RetryStrategy;
