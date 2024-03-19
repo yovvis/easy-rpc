@@ -1,5 +1,6 @@
 package com.yovvis.ysrpc.config;
 
+import com.yovvis.ysrpc.fault.retry.key.RetryStrategyKeys;
 import com.yovvis.ysrpc.loadbalancer.key.LoadBalancerKeys;
 import com.yovvis.ysrpc.serializer.key.SerializerKeys;
 import lombok.Data;
@@ -48,4 +49,9 @@ public class RpcConfig {
      * 负载均衡器
      */
     private String loadBalancer = LoadBalancerKeys.ROUND_ROBIN;
+
+    /**
+     * 重试策略
+     */
+    private String retryStrategy = RetryStrategyKeys.NO;
 }

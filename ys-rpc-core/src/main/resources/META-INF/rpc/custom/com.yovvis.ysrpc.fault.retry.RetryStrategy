@@ -1,0 +1,2 @@
+no=com.yovvis.ysrpc.fault.retry.noretry.NoRetryStrategy
+fixInterval=com.yovvis.ysrpc.fault.retry.fixed.FixedIntervalRetryStrategy

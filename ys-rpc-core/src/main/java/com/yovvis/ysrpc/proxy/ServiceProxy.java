@@ -4,6 +4,8 @@ import cn.hutool.core.collection.CollUtil;
 import com.yovvis.ysrpc.RpcApplication;
 import com.yovvis.ysrpc.config.RpcConfig;
 import com.yovvis.ysrpc.constant.RpcConstant;
+import com.yovvis.ysrpc.fault.retry.RetryStrategy;
+import com.yovvis.ysrpc.fault.retry.RetryStrategyFactory;
 import com.yovvis.ysrpc.loadbalancer.LoadBalancer;
 import com.yovvis.ysrpc.loadbalancer.LoadBalancerFactory;
 import com.yovvis.ysrpc.model.RpcRequest;
@@ -59,14 +61,19 @@ public class ServiceProxy implements InvocationHandler {
             if (CollUtil.isEmpty(serviceMetaInfoList)) {
                 throw new RuntimeException("暂无服务地址");
             }
+
             // 负载均衡
             LoadBalancer loadBalancer = LoadBalancerFactory.getInstance(rpcConfig.getLoadBalancer());
             // 将调用方法名（请求路径）作为负载均衡参数
             Map<String, Object> requestParams = new HashMap<>();
             requestParams.put("methodName", rpcRequest.getMethodName());
             ServiceMetaInfo selectedServiceMetaInfo = loadBalancer.select(requestParams, serviceMetaInfoList);
-            // 发送 TCP 请求
-            RpcResponse rpcResponse = VertxTcpClient.doRequest(rpcRequest, selectedServiceMetaInfo);
+
+            // 发送 TCP 请求 (使用重试机制)
+            RetryStrategy retryStrategy = RetryStrategyFactory.getInstance(rpcConfig.getRetryStrategy());
+            RpcResponse rpcResponse = retryStrategy.doRetry(() ->
+                    VertxTcpClient.doRequest(rpcRequest, selectedServiceMetaInfo)
+            );
             return rpcResponse.getData();
         } catch (Exception e) {
             throw new RuntimeException("调用失败");
