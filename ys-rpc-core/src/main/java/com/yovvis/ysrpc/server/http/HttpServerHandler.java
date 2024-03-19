@@ -1,4 +1,4 @@
-package com.yovvis.ysrpc.server;
+package com.yovvis.ysrpc.server.http;
 
 import com.yovvis.ysrpc.RpcApplication;
 import com.yovvis.ysrpc.model.RpcRequest;
@@ -10,6 +10,8 @@ import io.vertx.core.Handler;
 import io.vertx.core.buffer.Buffer;
 import io.vertx.core.http.HttpServerRequest;
 import io.vertx.core.http.HttpServerResponse;
+import io.vertx.core.net.HostAndPort;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
 import java.lang.reflect.Method;
@@ -21,13 +23,14 @@ import java.lang.reflect.Method;
  * @author yovvis
  * @date 2024/3/5
  */
+@Slf4j
 public class HttpServerHandler implements Handler<HttpServerRequest> {
     @Override
     public void handle(HttpServerRequest request) {
         // 1.指定序列化器
         final Serializer serializer = SerializerFactory.getInstance(RpcApplication.getRpcConfig().getSerializer());
         // 2，记录日志
-        System.out.println("Received request：" + request.method() + " " + request.uri());
+        log.info("Received request：{}, {}", request.method(), request.uri());
         // 3.异步处理请求
         request.bodyHandler(body -> {
             byte[] bytes = body.getBytes();

@@ -1,4 +1,4 @@
-package com.yovvis.ysrpc.server;
+package com.yovvis.ysrpc.server.http;
 
 /**
  * HTTP服务器接口

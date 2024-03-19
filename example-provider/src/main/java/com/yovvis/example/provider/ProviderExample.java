@@ -8,7 +8,7 @@ import com.yovvis.ysrpc.model.ServiceMetaInfo;
 import com.yovvis.ysrpc.registry.LocalRegistry;
 import com.yovvis.ysrpc.registry.Registry;
 import com.yovvis.ysrpc.registry.RegistryFactory;
-import com.yovvis.ysrpc.server.VertxHttpServer;
+import com.yovvis.ysrpc.server.tcp.VertxTcpServer;
 
 /**
  * 服务提供实例
@@ -39,8 +39,10 @@ public class ProviderExample {
             throw new RuntimeException(e);
         }
         // 4.启动web服务
-        VertxHttpServer httpServer = new VertxHttpServer();
-        httpServer.doStart(RpcApplication.getRpcConfig().getServerPort());
+//        VertxHttpServer httpServer = new VertxHttpServer();
+//        httpServer.doStart(RpcApplication.getRpcConfig().getServerPort());
+        VertxTcpServer tcpServer = new VertxTcpServer();
+        tcpServer.doStart(RpcApplication.getRpcConfig().getServerPort());
 
     }
 }

@@ -1,13 +1,10 @@
 package com.yovvis.example.provider;
 
-import com.yovvis.example.common.model.User;
 import com.yovvis.example.common.service.UserService;
 import com.yovvis.ysrpc.RpcApplication;
-import com.yovvis.ysrpc.config.RpcConfig;
 import com.yovvis.ysrpc.registry.LocalRegistry;
-import com.yovvis.ysrpc.server.HttpServer;
-import com.yovvis.ysrpc.server.VertxHttpServer;
-import com.yovvis.ysrpc.utils.ConfigUtils;
+import com.yovvis.ysrpc.server.http.HttpServer;
+import com.yovvis.ysrpc.server.http.VertxHttpServer;
 
 /**
  * 简单的服务者提供
